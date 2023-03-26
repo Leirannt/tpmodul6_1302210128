@@ -16,7 +16,7 @@ namespace tpmodul6_1302210128
         public SayaTubeVideo(string title)
         {
             Contract.Requires(title != null, "Judul video tidak boleh null");
-   
+            Contract.Requires(title.Length <= 100, "Judul video memiliki panjang maksimal 100 karakter");
 
             this.id = new Random().Next(10000, 99999);
             this.title = title;
@@ -25,7 +25,7 @@ namespace tpmodul6_1302210128
 
         public void IncreasePlayCount(int count)
         {
-          
+            Contract.Requires(count >= 0 && count <= 10000000, "Input penambahan play count maksimal 10.000.000 per panggilan method");
 
             try
             {
